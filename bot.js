@@ -1,6 +1,15 @@
 var Discord = require('discord.js'),
     helper = require('./helper.js'),
-    express = require('express')
+    express = require('express'),
+    static = require('node-static');
+
+var fileServer = new static.Server('./');
+
+require('http').createServer(function (request, response) {
+    request.addListener('end', function () {
+        fileServer.serve(request, response);
+    }).resume();
+}).listen(8080);
 
 var app = express()
 
@@ -8,7 +17,9 @@ var app = express()
 var bot = new Discord.Client()
 
 bot.on('ready', () => {
-    bot.user.setActivity(process.env.RAGSERVER, { type: 'PLAYING' });
+    bot.user.setActivity(process.env.RAGSERVER, {
+        type: 'PLAYING'
+    });
 });
 
 bot.on('message', msg => {
@@ -16,6 +27,7 @@ bot.on('message', msg => {
 })
 
 bot.login(process.env.TOKEN)
+
 
 app.listen(process.env.PORT || 3000, "0.0.0.0", function () {
     console.log("Listening on Port 3000");
