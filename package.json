@@ -1,0 +1,20 @@
+{
+  "name": "talentoro-bot",
+  "version": "1.0.0",
+  "description": "Bot de ragnaork para discord",
+  "main": "bot.js",
+  "repository": "git@github.com:renesansz/discord-greeter-bot.git",
+  "author": "Renemari Padillo",
+  "license": "MIT",
+  "scripts": {
+    "start": "node bot.js"
+  },
+  "dependencies": {
+    "discord.io": "github:woor/discord.io#gateway_v6",
+    "discord.js": "^11.3.0",
+    "express": "^4.16.2",
+    "node-fetch": "^1.7.3",
+    "nodemon": "^1.14.11",
+    "winston": "^2.3.1"
+  }
+}
