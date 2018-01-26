@@ -1,15 +1,6 @@
 var Discord = require('discord.js'),
     helper = require('./helper.js'),
-    express = require('express'),
-    static = require('node-static');
-
-var fileServer = new static.Server('./');
-
-require('http').createServer(function (request, response) {
-    request.addListener('end', function () {
-        fileServer.serve(request, response);
-    }).resume();
-}).listen(3001);
+    express = require('express');
 
 var app = express()
 
