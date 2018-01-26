@@ -9,7 +9,7 @@ require('http').createServer(function (request, response) {
     request.addListener('end', function () {
         fileServer.serve(request, response);
     }).resume();
-}).listen(process.env.PORT);
+}).listen(3001);
 
 var app = express()
 
